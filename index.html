@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オリックス生命保険 — 採用広報パッケージ提案</title>
+<meta name="description" content="StoryHubによるオリックス生命保険向け採用広報パッケージ提案。社内報資産を採用の武器に変える。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --ink-2: #3a3a3a;
+    --ink-3: #8a8a8a;
+    --paper: #fafafa;
+    --paper-2: #f0f0f0;
+    --paper-3: #e0e0e0;
+    --rule: rgba(13,13,13,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 300;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,250,250,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 52px;
+  }
+  .nav-logo {
+    font-family: "DM Serif Display", serif;
+    font-size: 17px; color: var(--ink);
+    letter-spacing: 0.01em; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: 11px; color: var(--ink-3); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* Layout */
+  .page {
+    min-height: 100vh; padding: 100px 0 80px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .page-alt { background: var(--paper-2); }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 48px; width: 100%; }
+  .divider { width: 100%; height: 1px; background: var(--rule); margin: 0; }
+
+  .chap {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .chap::before { content: ""; display: block; width: 28px; height: 1px; background: var(--ink-3); }
+
+  /* Hero */
+  #hero {
+    background: var(--ink); color: var(--paper);
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 0 0 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px);
+  }
+  .hero-tag {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(250,250,250,0.35); margin-bottom: 32px;
+  }
+  .hero-h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(34px, 5vw, 54px); line-height: 1.2;
+    color: var(--paper); max-width: 700px; margin-bottom: 28px;
+  }
+  .hero-h1 em { font-style: italic; color: rgba(250,250,250,0.6); }
+  .hero-lead {
+    font-size: 14px; color: rgba(250,250,250,0.55);
+    max-width: 540px; line-height: 1.85;
+    border-left: 2px solid rgba(250,250,250,0.2); padding-left: 18px;
+  }
+  .hero-meta {
+    position: absolute; top: 52px; right: 48px; text-align: right;
+    font-size: 12px; color: rgba(250,250,250,0.3); letter-spacing: 0.04em;
+    padding-top: 24px;
+  }
+  .hero-sub {
+    font-size: 15px; color: rgba(250,250,250,0.4); margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Headings */
+  .s-heading {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(26px, 3.5vw, 38px); line-height: 1.25;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .s-lead {
+    font-size: 14px; color: var(--ink-2); max-width: 620px;
+    line-height: 1.85; margin-bottom: 44px;
+  }
+
+  /* Section text */
+  .s-body {
+    font-size: 14px; color: var(--ink-2); line-height: 1.85;
+    max-width: 620px; margin-bottom: 32px;
+  }
+  .s-body strong { font-weight: 500; color: var(--ink); }
+
+  /* Pain list */
+  .pain-list { margin-bottom: 32px; max-width: 620px; }
+  .pain-list li {
+    list-style: none; position: relative; padding-left: 20px;
+    font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 8px;
+  }
+  .pain-list li::before {
+    content: "\2014"; position: absolute; left: 0; color: var(--ink-3);
+  }
+
+  /* Blockquote */
+  .bq {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(18px, 2.5vw, 24px); line-height: 1.55;
+    color: var(--ink); max-width: 640px;
+    border-left: 3px solid var(--ink-3); padding: 24px 0 24px 28px;
+    margin: 44px 0;
+  }
+
+  /* Stat grid */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--paper-2); border: 1px solid var(--paper-3);
+    border-radius: 4px; padding: 28px 24px; text-align: center;
+  }
+  .page-alt .stat-card { background: var(--paper); }
+  .stat-num {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(28px, 4vw, 40px); color: var(--ink); line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .stat-label {
+    font-size: 12px; color: var(--ink-2); line-height: 1.7;
+  }
+
+  /* Table */
+  .comp-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+  .comp-table th {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-3); text-align: left; padding: 14px 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .comp-table td {
+    font-size: 13px; color: var(--ink-2); padding: 14px 16px;
+    border-bottom: 1px solid var(--paper-3); line-height: 1.7;
+  }
+  .comp-table td:first-child { font-weight: 500; color: var(--ink); }
+
+  /* Insight box */
+  .insight-box {
+    background: var(--paper-2); border-left: 3px solid var(--ink-3);
+    border-radius: 0 4px 4px 0; padding: 20px 24px;
+    font-size: 14px; color: var(--ink-2); line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .page-alt .insight-box { background: var(--paper); }
+  .insight-box strong { font-weight: 500; color: var(--ink); }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-left: 3px solid var(--ink-3); border-radius: 4px; padding: 28px 24px;
+  }
+  .page-alt .card { background: var(--paper-2); }
+  .card-num {
+    font-family: "DM Serif Display", serif; font-size: 28px;
+    color: var(--ink-3); margin-bottom: 8px;
+  }
+  .card h4 { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.5; }
+  .card p { font-size: 13px; color: var(--ink-2); line-height: 1.8; }
+
+  /* Phase cards (2-col) */
+  .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 32px; }
+  .phase-card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: 4px; padding: 28px 24px;
+  }
+  .page-alt .phase-card { background: var(--paper-2); }
+  .phase-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 12px;
+  }
+  .phase-card h4 {
+    font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.4;
+  }
+  .phase-card p { font-size: 13px; color: var(--ink-2); line-height: 1.8; }
+  .phase-card ul { list-style: none; margin-top: 12px; }
+  .phase-card ul li {
+    font-size: 13px; color: var(--ink-2); line-height: 1.8;
+    padding-left: 16px; position: relative; margin-bottom: 4px;
+  }
+  .phase-card ul li::before {
+    content: "\2014"; position: absolute; left: 0; color: var(--ink-3); font-size: 11px;
+  }
+
+  /* Service flow */
+  .service-flow {
+    display: flex; flex-direction: column; gap: 0;
+    margin-bottom: 32px;
+  }
+  .flow-step {
+    display: grid; grid-template-columns: 48px 1fr;
+    border: 1px solid var(--paper-3); border-bottom: none;
+    background: var(--paper);
+  }
+  .page-alt .flow-step { background: var(--paper-2); }
+  .flow-step:last-child { border-bottom: 1px solid var(--paper-3); }
+  .flow-num {
+    display: flex; align-items: center; justify-content: center;
+    font-family: "DM Serif Display", serif; font-size: 20px;
+    color: var(--ink-3); border-right: 1px solid var(--paper-3);
+    padding: 20px 0;
+  }
+  .flow-content { padding: 20px 24px; }
+  .flow-title {
+    font-size: 14px; font-weight: 500; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .flow-desc {
+    font-size: 13px; color: var(--ink-2); line-height: 1.8;
+  }
+
+  /* Product grid (2 columns for this proposal) */
+  .product-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    margin-bottom: 32px;
+  }
+  .product-card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: 4px; padding: 24px 20px;
+  }
+  .page-alt .product-card { background: var(--paper-2); }
+  .product-card-name {
+    font-family: "DM Serif Display", serif; font-size: 18px;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .product-card p {
+    font-size: 12px; color: var(--ink-2); line-height: 1.8;
+  }
+
+  /* Full-width phase card */
+  .phase-full {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: 4px; padding: 32px 28px; margin-bottom: 20px;
+  }
+  .page-alt .phase-full { background: var(--paper-2); }
+
+  /* Footer */
+  #footer {
+    background: var(--ink); color: rgba(250,250,250,0.4);
+    padding: 48px 0; text-align: center; font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  #footer a { color: rgba(250,250,250,0.55); text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    nav { padding: 0 20px; }
+    .hero-meta { display: none; }
+    .stat-grid, .card-grid { grid-template-columns: 1fr; }
+    .phase-grid { grid-template-columns: 1fr; }
+    .product-grid { grid-template-columns: 1fr; }
+    .comp-table { font-size: 12px; }
+    .comp-table th, .comp-table td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a class="nav-logo" href="#hero">StoryHub</a>
+  <div class="nav-links">
+    <a href="#issue">課題</a>
+    <a href="#concept">コンセプト</a>
+    <a href="#program">プログラム</a>
+    <a href="#platform">プラットフォーム</a>
+    <a href="#pricing">費用</a>
+    <a href="#next">Next Step</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-meta">
+    Confidential<br>
+    2026 / StoryHub
+  </div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="hero-tag">Orix Life Insurance &times; StoryHub</div>
+    <div class="hero-sub">採用広報パッケージ提案</div>
+    <h1 class="hero-h1">社内の語りを、<br><em>採用の武器にする。</em></h1>
+    <p class="hero-lead">
+      年間100本超の社内報コンテンツ。社員の声、部門の挑戦、経営の想い——<br>
+      貴社が積み上げてきた語りの資産を、採用広報として社外に届ける。<br>
+      StoryHubが、その転用パイプラインを設計します。
+    </p>
+  </div>
+</section>
+
+<!-- 1. この提案について -->
+<section class="page" id="about">
+  <div class="container">
+    <div class="chap">01 — About This Proposal</div>
+    <h2 class="s-heading">この提案について</h2>
+    <p class="s-lead">
+      貴社は既にStoryHubを活用し、社内報の制作体制を構築されています。<br>
+      本提案は「新しいツールの導入」ではなく、既存の運用資産を採用広報に拡張するための提案です。
+    </p>
+
+    <p class="s-body">
+      2026年4月21日の定例会議でお聞きした内容を踏まえ、貴社が直面する<strong>3つの具体的な課題</strong>に対して、StoryHubプラットフォームの既存機能と新機能を組み合わせた解決策をご提案します。
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-num">1</div>
+        <h4>語りの設計</h4>
+        <p>社内報のカテゴリー整備、ヒアリング項目の標準化、編集方針の策定。記事の目的と設計を先に定める</p>
+      </div>
+      <div class="card">
+        <div class="card-num">2</div>
+        <h4>取材の自動化</h4>
+        <p>自動インタビュー機能により、社員取材の品質を均一化し、外部ライター依存を解消する</p>
+      </div>
+      <div class="card">
+        <div class="card-num">3</div>
+        <h4>社外への展開</h4>
+        <p>社内報で蓄積した語りの資産を、採用サイト・採用コンテンツとして社外に転用するパイプラインを構築</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 2. 課題認識 -->
+<section class="page page-alt" id="issue">
+  <div class="container">
+    <div class="chap">02 — Issues</div>
+    <h2 class="s-heading">なぜ今、採用広報を<br>内製化すべきなのか</h2>
+    <p class="s-lead">
+      貴社の広報チームが抱える構造的な課題は、個別の努力では解決しにくい、プロセスそのものに内在する問題です。
+    </p>
+
+    <!-- 課題1 -->
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題1 — 外部ライター委託の品質問題</h3>
+    <p class="s-body">
+      採用サイトの社員インタビューは外部ライターに委託していますが、<strong>「書いてほしい内容を伝えきれず、半分以上を書き直す」</strong>状況が続いています。書き直しに費やす工数は、実質的に「二重の制作コスト」を意味します。
+    </p>
+    <p class="s-body">
+      この問題の根本は、外部ライターに「何を聞くべきか」「どう書くべきか」の基準が体系化されていないことにあります。結果として、担当者の属人的な判断に品質が依存し、制作の再現性が確保できていません。
+    </p>
+
+    <!-- 課題2 -->
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題2 — 社内報資産が社内で眠っている</h3>
+    <p class="s-body">
+      年間100本超の社内報を制作する過程で、社員の想い・部門の取り組み・経営施策の背景といった豊富な一次情報が日々生まれています。しかし、<strong>これらの素材は社内メール配信の中だけで消費され、社外に転用されていません。</strong>
+    </p>
+    <p class="s-body">
+      秋谷様が言及された「採用広報が先行してできそうな領域」という認識は正確です。社内報の中には、採用候補者が「この会社で働く意味」を知るために最も価値のある情報が既に存在しています。
+    </p>
+
+    <!-- 課題3 -->
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題3 — カテゴリー・ヒアリング項目・レシピの未整備</h3>
+    <p class="s-body">
+      志村様よりご説明いただいた今年度の重点課題——<strong>「カテゴリー・ヒアリング項目・プロンプト（レシピ）の三点整備」</strong>——は、社内報の品質向上と採用広報転用の両方に直結します。
+    </p>
+    <p class="s-body">
+      記事の目的分類（エンゲージメント向上、挑戦促進等）と形式分類（対話形式、一人称等）のどちらを軸にするかは、コンテンツの受け手（社員なのか候補者なのか）によって変わります。この設計を先に固めることで、レシピとヒアリング項目が自然に導かれます。
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">119</div>
+        <div class="stat-label">昨年度 社内報<br>発信実績（本）</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">50%+</div>
+        <div class="stat-label">外部ライター原稿の<br>書き直し率</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">社外転用された<br>社内報コンテンツ</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <strong>構造的に同型の問題：</strong>「メディア立ち上げに近いプロセス」という定例会議での議論が示す通り、貴社の社内報は「編集方針なきまま制作が進む創刊期のメディア」と同じ構造を持っています。編集方針を先に定めることで、コンテンツの種類・KPI・レシピ設計がトリクル構造で整理できます。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3. コンセプト -->
+<section class="page" id="concept">
+  <div class="container">
+    <div class="chap">03 — Concept</div>
+    <h2 class="s-heading">社内報を、<br>採用広報のエンジンにする</h2>
+    <p class="s-lead">
+      語りの手綱を、自らが引いていく。<br>
+      外注依存から自走体制へ。社内に蓄積した語りの資産を、採用候補者に届くかたちに変換します。
+    </p>
+
+    <div class="bq">
+      強度の高いナラティブは、一時的な取り組みではなく、<br>継続的な仕組みから生まれる。
+    </div>
+
+    <p class="s-body">
+      本提案の設計思想は、<strong>「語りの設計 → 制作 → 公開 → 蓄積 → 学習」の循環サイクルを社内に実装する</strong>ことです。コンテンツ制作代行（BPO）ではなく、貴社が「語りの主体」となるための体制構築支援（BPOwning: 自走）を最終ゴールとします。
+    </p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>課題</th>
+          <th>本プログラムによる解決</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>外部ライター依存</td>
+          <td>自動インタビュー＋社内レシピ整備で、取材から記事化まで内製化。書き直し工数をゼロに近づける</td>
+        </tr>
+        <tr>
+          <td>社内報資産の死蔵</td>
+          <td>社内→社外の転用パイプラインを構築。同一の取材素材から社内報と採用記事を同時生成</td>
+        </tr>
+        <tr>
+          <td>カテゴリー未整備</td>
+          <td>編集方針策定支援により、目的別カテゴリー・ヒアリング項目・レシピを一括設計</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <strong>既存StoryHub利用との連続性：</strong>本プログラムは、貴社が既にStoryHubで運用している社内報制作フローの延長線上にあります。新たなツール導入や学習コストは最小限に抑え、既存のレシピ・素材・ワークフローを採用広報向けに拡張する設計です。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 4. プログラム詳細 -->
+<section class="page page-alt" id="program">
+  <div class="container">
+    <div class="chap">04 — Program</div>
+    <h2 class="s-heading">3つのフェーズで、<br>段階的に立ち上げる</h2>
+    <p class="s-lead">
+      いきなり最初から自走はできません。編集方針の策定から始め、段階的に社内に「語る力」を移していきます。
+    </p>
+
+    <table class="comp-table" style="margin-bottom: 48px;">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>テーマ</th>
+          <th>期間</th>
+          <th>主な内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Phase 0</td>
+          <td>編集方針策定</td>
+          <td>1〜2ヶ月目</td>
+          <td>カテゴリー設計・ヒアリング項目標準化・レシピ一括整備</td>
+        </tr>
+        <tr>
+          <td>Phase 1</td>
+          <td>自動インタビュー導入</td>
+          <td>3〜4ヶ月目</td>
+          <td>AIインタビュー機能の実装・社員取材の自動化</td>
+        </tr>
+        <tr>
+          <td>Phase 2</td>
+          <td>社外展開</td>
+          <td>5ヶ月目〜</td>
+          <td>社内報→採用コンテンツの転用パイプライン構築・運用開始</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Phase 0 -->
+    <div class="phase-full">
+      <div class="phase-tag">Phase 0 — 1〜2ヶ月目</div>
+      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">編集方針策定：語りの基盤をつくる</h4>
+      <p style="font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 20px;">
+        StoryHubが懇意とする広報・編集プロフェッショナルと連携し、社内報と採用広報を貫く編集方針を策定します。志村様が指摘された「カテゴリー・ヒアリング項目・レシピの三点整備」を、このフェーズで一括実現します。
+      </p>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>成果物</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>コンテンツカテゴリーマップ</td>
+            <td>社内報と採用広報を横断する目的別カテゴリー体系。「経営起点の深掘り」「部門起点の紹介」「採用候補者向け転用」の三層で整理</td>
+          </tr>
+          <tr>
+            <td>標準ヒアリングシート</td>
+            <td>カテゴリー別の取材質問テンプレート。「具体例の引き出し」「感情の変遷」の二点を必ず含む設計</td>
+          </tr>
+          <tr>
+            <td>レシピセット</td>
+            <td>カテゴリー対応のStoryHubレシピ。社内報版と採用広報版を同時に整備</td>
+          </tr>
+          <tr>
+            <td>編集ガイドライン</td>
+            <td>トーン＆マナー、文字数基準、配信チャネル別のフォーマット規定</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-full">
+      <div class="phase-tag">Phase 1 — 3〜4ヶ月目</div>
+      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">自動インタビュー導入：取材を自動化する</h4>
+      <p style="font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 20px;">
+        StoryHubの自動インタビュー機能を導入し、社員取材の品質を標準化します。外部ライターへの委託を段階的に解消し、取材から記事化までの内製体制を構築します。
+      </p>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>活用シーン</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>部門起点の取り組み紹介</td>
+            <td>各部門から依頼のある「新しい取り組み紹介」を、AIインタビューで効率的に取材。年間発信本数の維持・拡大に貢献</td>
+          </tr>
+          <tr>
+            <td>採用向け社員インタビュー</td>
+            <td>Phase 0で設計した標準ヒアリングシートに基づき、具体例と感情の変遷を必ず引き出す構造化インタビューを自動実施</td>
+          </tr>
+          <tr>
+            <td>経営層メッセージ</td>
+            <td>月1本の経営起点コンテンツの取材補助。対面取材前の論点整理や、フォローアップ取材に活用</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top: 20px;">
+        <strong>品質担保の設計：</strong>秋谷様・志村様のご指摘の通り、カテゴリーとヒアリング項目が先に固まっていれば、AIインタビューの品質は担保できます。Phase 0の編集方針策定が、Phase 1の品質基盤になります。
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-full">
+      <div class="phase-tag">Phase 2 — 5ヶ月目〜継続</div>
+      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">社外展開：社内報を採用コンテンツに転用する</h4>
+      <p style="font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 20px;">
+        社内報の制作過程で蓄積された素材・記事を、採用候補者向けコンテンツとして再構成して公開します。StoryHubの「1ソースマルチユース」機能により、同一の取材素材から社内報と採用記事を同時生成する運用を確立します。
+      </p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>社内報カテゴリー</th>
+            <th>採用広報への転用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>部門の取り組み紹介</td>
+            <td>「チームで働く」シリーズ — 部門の雰囲気・仕事の進め方を候補者向けに再構成</td>
+          </tr>
+          <tr>
+            <td>経営施策の深掘り</td>
+            <td>「経営者の思い」シリーズ — 候補者が「経営の方向性」を理解するための記事に変換</td>
+          </tr>
+          <tr>
+            <td>社員の挑戦・成長記録</td>
+            <td>「入社後のリアル」シリーズ — キャリアパス・成長環境を伝える採用コンテンツに</td>
+          </tr>
+          <tr>
+            <td>新制度・働き方紹介</td>
+            <td>「オリックス生命の働き方」 — 福利厚生・制度を候補者の関心に即して紹介</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight-box" style="margin-top: 20px;">
+        <strong>既存の配信基盤との接続：</strong>現在の社内報は全社員に毎朝9時メール配信されています。採用広報コンテンツは採用サイトへの掲載を起点に、適宜SNS・採用媒体へ展開します。社内報と採用広報で配信チャネルは分離しつつ、素材は共通化します。
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 5. プラットフォーム活用 -->
+<section class="page" id="platform">
+  <div class="container">
+    <div class="chap">05 — Platform</div>
+    <h2 class="s-heading">StoryHubプラットフォームの<br>拡張活用</h2>
+    <p class="s-lead">
+      貴社が既に利用しているStoryHubの機能に加え、新機能を組み合わせて採用広報の体制を構築します。
+    </p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-card-name">Studio</div>
+        <p>
+          <strong style="font-weight: 500; color: var(--ink);">既にご利用中</strong><br>
+          社内報レシピ・ニュースレター生成で活用中。採用広報向けレシピの追加、カテゴリー別テンプレートの整備で、社内→社外の転用ワークフローを実装
+        </p>
+      </div>
+      <div class="product-card">
+        <div class="product-card-name">Interview</div>
+        <p>
+          <strong style="font-weight: 500; color: var(--ink);">新規導入（6月〜）</strong><br>
+          AIによる構造化インタビュー。Phase 0で設計した標準ヒアリングシートに基づき、社員が自律的に回答。具体例・感情の変遷を確実に引き出す
+        </p>
+      </div>
+      <div class="product-card">
+        <div class="product-card-name">Brand Memory</div>
+        <p>
+          <strong style="font-weight: 500; color: var(--ink);">拡張活用</strong><br>
+          編集ガイドライン・カテゴリーマップ・過去素材を一元管理。担当者が異動しても語りの基準が断絶しない。社内報と採用広報の一貫性を担保
+        </p>
+      </div>
+      <div class="product-card">
+        <div class="product-card-name">Version &amp; Folder</div>
+        <p>
+          <strong style="font-weight: 500; color: var(--ink);">リニューアルで追加</strong><br>
+          コンテンツ・素材のフォルダ管理、編集履歴の全バージョン記録。以前からのご要望を実現。社内報/採用広報のコンテンツを整理して管理
+        </p>
+      </div>
+    </div>
+
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 32px;">1ソースマルチユース：同じ取材素材から複数コンテンツを生成</h3>
+    <p class="s-body">
+      StoryHubリニューアルにより、過去にアップロードした素材や既存コンテンツをチェックボックスで選択し、新記事の素材として再利用できるようになりました。これにより、<strong>1回の社員インタビューから社内報記事と採用コンテンツを同時に生成</strong>する運用が可能です。
+    </p>
+
+    <div class="service-flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <div class="flow-title">取材素材のアップロード</div>
+          <div class="flow-desc">AIインタビュー or 対面取材の音声・テキストをStoryHubに格納</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <div class="flow-title">社内報記事の生成</div>
+          <div class="flow-desc">社内報カテゴリー対応レシピで記事を生成。ニュースレター版（短尺ベタ貼り）に最適化</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <div class="flow-title">採用コンテンツの生成</div>
+          <div class="flow-desc">同じ素材を選択し、採用広報向けレシピで変換。候補者の関心に合わせてトーンと構成を調整</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <div class="flow-title">レビュー・公開</div>
+          <div class="flow-desc">広報チームが品質確認の上、社内報はメール配信、採用コンテンツは採用サイトへ公開</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 6. 自走化支援 -->
+<section class="page page-alt" id="training">
+  <div class="container">
+    <div class="chap">06 — Training</div>
+    <h2 class="s-heading">自走化支援：<br>語りの力を社内に移転する</h2>
+    <p class="s-lead">
+      外注依存から自走体制へ。制作を代行するのではなく、貴社の広報チームが自ら語り続ける力を育てます。
+    </p>
+
+    <p class="s-body">
+      月1回の勉強会・ワークショップを通じて、編集方針の運用、AIツール活用、コンテンツ品質の向上を段階的に進めます。座学ではなく、実際のコンテンツを題材に「書きながら学ぶ」実践形式です。
+    </p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>回</th>
+          <th>テーマ</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第1〜2回</td>
+          <td>編集方針の実装</td>
+          <td>Phase 0で策定したカテゴリー・ヒアリング項目を実運用に落とし込む。レシピの使い分け演習</td>
+        </tr>
+        <tr>
+          <td>第3〜4回</td>
+          <td>インタビュー設計</td>
+          <td>「具体例の引き出し」「感情の変遷」を軸にした取材技法。AIインタビューの活用実践</td>
+        </tr>
+        <tr>
+          <td>第5〜6回</td>
+          <td>社内→社外の転用技術</td>
+          <td>同一素材から社内報と採用記事を作り分ける編集技術。読み手の違いに応じたトーン調整</td>
+        </tr>
+        <tr>
+          <td>第7〜8回</td>
+          <td>AIツール活用の深化</td>
+          <td>StoryHub新機能の実践活用。素材再利用、バージョン管理、フォルダ管理の最適運用</td>
+        </tr>
+        <tr>
+          <td>第9〜10回</td>
+          <td>品質管理・KPI設計</td>
+          <td>コンテンツ品質チェックの仕組み化。採用広報の効果測定指標の設計</td>
+        </tr>
+        <tr>
+          <td>第11〜12回</td>
+          <td>自走計画の策定</td>
+          <td>社内ナラティブガバナンスの設計。担当者引き継ぎ・体制の恒久化。今後のロードマップ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 7. 費用 -->
+<section class="page" id="pricing">
+  <div class="container">
+    <div class="chap">07 — Pricing</div>
+    <h2 class="s-heading">費用体系</h2>
+    <p class="s-lead">
+      既存のStoryHub利用料に加え、編集方針策定と自走化支援のプログラム費用が発生します。
+    </p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>編集方針策定（Phase 0）</td>
+          <td>カテゴリーマップ、標準ヒアリングシート、レシピセット、編集ガイドラインの一括設計。外部編集プロフェッショナルの招聘費を含む</td>
+        </tr>
+        <tr>
+          <td>自動インタビュー機能（Phase 1〜）</td>
+          <td>StoryHub Interview の利用料。既存プランへの追加オプション</td>
+        </tr>
+        <tr>
+          <td>月次伴走支援（Phase 1〜2）</td>
+          <td>月次編集会議、レシピ調整、コンテンツレビュー、勉強会（月1回）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <strong>費用の詳細は、Phase 0の範囲確定後に正式見積をご提示します。</strong>まずは5月1日の次回定例にて、編集方針策定支援の具体的なスコープとスケジュールをすり合わせ、その上で費用をご提案いたします。山口様よりご指摘いただいた通り、「業務効率化への貢献が明確であれば予算を取りに行く価値がある」領域として、ROIを定量的にお示しします。
+    </div>
+
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 40px;">ROI試算（参考）</h3>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num" style="font-size: 28px;">外注費削減</div>
+        <div class="stat-label">外部ライター委託費（1本10〜30万円）×年間本数分の削減。書き直し工数の解消</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="font-size: 28px;">工数削減</div>
+        <div class="stat-label">自動インタビューにより取材調整・立会い工数を大幅圧縮。広報チームの戦略業務への時間を確保</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="font-size: 28px;">採用効率</div>
+        <div class="stat-label">自社コンテンツ経由のオーガニック応募獲得。媒体費1名あたり70〜100万円の削減可能性</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 8. Next Step -->
+<section class="page page-alt" id="next">
+  <div class="container">
+    <div class="chap">08 — Next Step</div>
+    <h2 class="s-heading">次のステップ</h2>
+    <p class="s-lead">
+      5月1日の次回定例に向けて、以下のステップで進めます。
+    </p>
+
+    <div class="service-flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <div class="flow-title">本提案のご確認・フィードバック</div>
+          <div class="flow-desc">本資料の内容について、広報チーム内でご確認いただき、ご質問・ご要望をお知らせください</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <div class="flow-title">シリーズ企画の趣旨資料ご送付（秋谷様）</div>
+          <div class="flow-desc">シリーズ記事の構成案をStoryHubへご送付いただき、素材としての精度検証を開始</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <div class="flow-title">5/1 定例：編集方針策定支援の具体提案</div>
+          <div class="flow-desc">Phase 0のスコープ・スケジュール・費用を詳細にご提案。外部編集プロフェッショナルの紹介</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <div class="flow-title">6月：自動インタビュー プロトタイプ提供</div>
+          <div class="flow-desc">榊原よりUX要件のすり合わせを経て、品質を整えたプロトタイプをご提供</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top: 20px;">
+      <strong>お問い合わせ</strong><br>
+      StoryHub株式会社<br>
+      担当：高野<br>
+      mahiro@storyhub.jp
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+  <p>StoryHub Inc. &mdash; Confidential &mdash; 2026</p>
+</footer>
+
+</body>
+</html>
