@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>オリックス生命保険 — 採用広報パッケージ提案</title>
-<meta name="description" content="StoryHubによるオリックス生命保険向け採用広報パッケージ提案。社内報資産を採用の武器に変える。">
+<title>オリックス生命保険 — 編集体制構築支援プログラム</title>
+<meta name="description" content="StoryHubによるオリックス生命保険CC チーム向け編集体制構築支援プログラム提案。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -123,16 +123,6 @@
   }
   .s-body strong { font-weight: 500; color: var(--ink); }
 
-  /* Pain list */
-  .pain-list { margin-bottom: 32px; max-width: 620px; }
-  .pain-list li {
-    list-style: none; position: relative; padding-left: 20px;
-    font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 8px;
-  }
-  .pain-list li::before {
-    content: "\2014"; position: absolute; left: 0; color: var(--ink-3);
-  }
-
   /* Blockquote */
   .bq {
     font-family: "DM Serif Display", serif;
@@ -198,28 +188,33 @@
   .card h4 { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.5; }
   .card p { font-size: 13px; color: var(--ink-2); line-height: 1.8; }
 
-  /* Phase cards (2-col) */
-  .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 32px; }
-  .phase-card {
+  /* Phase cards */
+  .phase-full {
     background: var(--paper); border: 1px solid var(--paper-3);
-    border-radius: 4px; padding: 28px 24px;
+    border-radius: 4px; padding: 32px 28px; margin-bottom: 20px;
   }
-  .page-alt .phase-card { background: var(--paper-2); }
+  .page-alt .phase-full { background: var(--paper-2); }
   .phase-tag {
     font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink-3); margin-bottom: 12px;
   }
-  .phase-card h4 {
-    font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.4;
+
+  /* Product grid */
+  .product-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    margin-bottom: 32px;
   }
-  .phase-card p { font-size: 13px; color: var(--ink-2); line-height: 1.8; }
-  .phase-card ul { list-style: none; margin-top: 12px; }
-  .phase-card ul li {
-    font-size: 13px; color: var(--ink-2); line-height: 1.8;
-    padding-left: 16px; position: relative; margin-bottom: 4px;
+  .product-card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: 4px; padding: 24px 20px;
   }
-  .phase-card ul li::before {
-    content: "\2014"; position: absolute; left: 0; color: var(--ink-3); font-size: 11px;
+  .page-alt .product-card { background: var(--paper-2); }
+  .product-card-name {
+    font-family: "DM Serif Display", serif; font-size: 18px;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .product-card p {
+    font-size: 12px; color: var(--ink-2); line-height: 1.8;
   }
 
   /* Service flow */
@@ -249,30 +244,19 @@
     font-size: 13px; color: var(--ink-2); line-height: 1.8;
   }
 
-  /* Product grid (2 columns for this proposal) */
-  .product-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
-    margin-bottom: 32px;
+  /* Highlight box */
+  .highlight-box {
+    background: var(--ink); color: var(--paper);
+    border-radius: 4px; padding: 32px 28px; margin-bottom: 32px;
   }
-  .product-card {
-    background: var(--paper); border: 1px solid var(--paper-3);
-    border-radius: 4px; padding: 24px 20px;
+  .highlight-box h4 {
+    font-family: "DM Serif Display", serif;
+    font-size: 20px; margin-bottom: 16px;
   }
-  .page-alt .product-card { background: var(--paper-2); }
-  .product-card-name {
-    font-family: "DM Serif Display", serif; font-size: 18px;
-    color: var(--ink); margin-bottom: 10px;
+  .highlight-box p {
+    font-size: 14px; color: rgba(250,250,250,0.65); line-height: 1.85;
   }
-  .product-card p {
-    font-size: 12px; color: var(--ink-2); line-height: 1.8;
-  }
-
-  /* Full-width phase card */
-  .phase-full {
-    background: var(--paper); border: 1px solid var(--paper-3);
-    border-radius: 4px; padding: 32px 28px; margin-bottom: 20px;
-  }
-  .page-alt .phase-full { background: var(--paper-2); }
+  .highlight-box strong { color: var(--paper); font-weight: 500; }
 
   /* Footer */
   #footer {
@@ -280,7 +264,6 @@
     padding: 48px 0; text-align: center; font-size: 12px;
     letter-spacing: 0.04em;
   }
-  #footer a { color: rgba(250,250,250,0.55); text-decoration: none; }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -288,7 +271,6 @@
     nav { padding: 0 20px; }
     .hero-meta { display: none; }
     .stat-grid, .card-grid { grid-template-columns: 1fr; }
-    .phase-grid { grid-template-columns: 1fr; }
     .product-grid { grid-template-columns: 1fr; }
     .comp-table { font-size: 12px; }
     .comp-table th, .comp-table td { padding: 10px 12px; }
@@ -305,6 +287,7 @@
     <a href="#concept">コンセプト</a>
     <a href="#program">プログラム</a>
     <a href="#platform">プラットフォーム</a>
+    <a href="#editorial">編集支援</a>
     <a href="#pricing">費用</a>
     <a href="#next">Next Step</a>
   </div>
@@ -319,12 +302,12 @@
   </div>
   <div class="container" style="position: relative; z-index: 1;">
     <div class="hero-tag">Orix Life Insurance &times; StoryHub</div>
-    <div class="hero-sub">採用広報パッケージ提案</div>
-    <h1 class="hero-h1">社内の語りを、<br><em>採用の武器にする。</em></h1>
+    <div class="hero-sub">編集体制構築支援プログラム</div>
+    <h1 class="hero-h1">経営広報の実践を、<br><em>編集の仕組みにする。</em></h1>
     <p class="hero-lead">
-      年間100本超の社内報コンテンツ。社員の声、部門の挑戦、経営の想い——<br>
-      貴社が積み上げてきた語りの資産を、採用広報として社外に届ける。<br>
-      StoryHubが、その転用パイプラインを設計します。
+      「経営の方向性のもとで、現場の挑戦が広がる状態をつくる」——<br>
+      貴社CCチームのミッションを実現するために、<br>
+      編集方針の策定からAI支援体制の構築まで、戦略的パートナーとして伴走します。
     </p>
   </div>
 </section>
@@ -335,29 +318,28 @@
     <div class="chap">01 — About This Proposal</div>
     <h2 class="s-heading">この提案について</h2>
     <p class="s-lead">
-      貴社は既にStoryHubを活用し、社内報の制作体制を構築されています。<br>
-      本提案は「新しいツールの導入」ではなく、既存の運用資産を採用広報に拡張するための提案です。
+      本提案は「新しいツールの導入」ではありません。貴社が既にStoryHubで構築した社内報制作フローを基盤に、CCチーム全体の編集体制を段階的に強化するための支援プログラムです。
     </p>
 
     <p class="s-body">
-      2026年4月21日の定例会議でお聞きした内容を踏まえ、貴社が直面する<strong>3つの具体的な課題</strong>に対して、StoryHubプラットフォームの既存機能と新機能を組み合わせた解決策をご提案します。
+      4月21日の定例会議でいただいたキックオフ資料「経営広報の実践とこの指止まれを生み出す一年へ」、および志村様からご説明いただいた今年度方針を踏まえ、<strong>CCチームの4領域（社内広報・社外広報・ウェブサイト・CI）</strong>にStoryHubがどう貢献できるかを整理しました。
     </p>
 
     <div class="card-grid">
       <div class="card">
         <div class="card-num">1</div>
-        <h4>語りの設計</h4>
-        <p>社内報のカテゴリー整備、ヒアリング項目の標準化、編集方針の策定。記事の目的と設計を先に定める</p>
+        <h4>編集方針の策定</h4>
+        <p>カテゴリー・ヒアリング項目・レシピの三点整備。貴社の既存整理をベースに、プロの編集知見で精緻化する</p>
       </div>
       <div class="card">
         <div class="card-num">2</div>
-        <h4>取材の自動化</h4>
-        <p>自動インタビュー機能により、社員取材の品質を均一化し、外部ライター依存を解消する</p>
+        <h4>AI編集体制の構築</h4>
+        <p>自動インタビューとレシピ設計で「部門Push → CCレビュー」の半自動化プロセスを実現する</p>
       </div>
       <div class="card">
         <div class="card-num">3</div>
         <h4>社外への展開</h4>
-        <p>社内報で蓄積した語りの資産を、採用サイト・採用コンテンツとして社外に転用するパイプラインを構築</p>
+        <p>社内報で蓄積した語りの資産を、採用広報・ウェブサイトへ転用するパイプラインを構築する</p>
       </div>
     </div>
   </div>
@@ -369,36 +351,36 @@
 <section class="page page-alt" id="issue">
   <div class="container">
     <div class="chap">02 — Issues</div>
-    <h2 class="s-heading">なぜ今、採用広報を<br>内製化すべきなのか</h2>
+    <h2 class="s-heading">課題は「やっていない」ではなく、<br>「つながっていない」こと</h2>
     <p class="s-lead">
-      貴社の広報チームが抱える構造的な課題は、個別の努力では解決しにくい、プロセスそのものに内在する問題です。
+      貴社キックオフ資料の言葉を借りれば、課題は発信量ではなく「接続」にあります。点在する発信を線にし、経営の方向性と現場の挑戦をつなぐ編集体制が必要です。
     </p>
 
     <!-- 課題1 -->
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題1 — 外部ライター委託の品質問題</h3>
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題1 — カテゴリー・ヒアリング項目・レシピの未整備</h3>
     <p class="s-body">
-      採用サイトの社員インタビューは外部ライターに委託していますが、<strong>「書いてほしい内容を伝えきれず、半分以上を書き直す」</strong>状況が続いています。書き直しに費やす工数は、実質的に「二重の制作コスト」を意味します。
+      志村様が今年度の重点課題として挙げられた<strong>「カテゴリー・ヒアリング項目・プロンプト（レシピ）の三点整備」</strong>は、社内報の品質向上のみならず、社外展開・AI活用の前提条件です。記事の目的分類が定まらなければ、AIに何を書かせるかも定まりません。
     </p>
     <p class="s-body">
-      この問題の根本は、外部ライターに「何を聞くべきか」「どう書くべきか」の基準が体系化されていないことにあります。結果として、担当者の属人的な判断に品質が依存し、制作の再現性が確保できていません。
+      貴社は既にカテゴリーの言語化に着手されています。本プログラムでは、その既存整理を出発点に、編集プロフェッショナルの知見を加えて体系化します。ゼロから作るのではなく、<strong>貴社の手元情報をベースに精緻化する</strong>アプローチです。
     </p>
 
     <!-- 課題2 -->
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題2 — 社内報資産が社内で眠っている</h3>
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題2 — 「部門Push」を支える仕組みがない</h3>
     <p class="s-body">
-      年間100本超の社内報を制作する過程で、社員の想い・部門の取り組み・経営施策の背景といった豊富な一次情報が日々生まれています。しかし、<strong>これらの素材は社内メール配信の中だけで消費され、社外に転用されていません。</strong>
+      キックオフ資料のPhase 1は<strong>「部門が記事初稿を提出 → CCがレビューして発信」</strong>の体制をAI支援で構築することです。しかし現状は、ヒアリング項目が属人的で、取材品質にバラつきが出やすい。「具体例の引き出し」「感情の変遷」が情報として揃わなければ、記事化の精度は上がりません。
     </p>
     <p class="s-body">
-      秋谷様が言及された「採用広報が先行してできそうな領域」という認識は正確です。社内報の中には、採用候補者が「この会社で働く意味」を知るために最も価値のある情報が既に存在しています。
+      自動インタビュー機能は、この「部門Push」を構造化する仕組みです。標準化されたヒアリング項目に基づき、各部門の社員が自律的に回答し、CCは品質レビューに集中できます。
     </p>
 
     <!-- 課題3 -->
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題3 — カテゴリー・ヒアリング項目・レシピの未整備</h3>
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">課題3 — 社内の語りが社外に届いていない</h3>
     <p class="s-body">
-      志村様よりご説明いただいた今年度の重点課題——<strong>「カテゴリー・ヒアリング項目・プロンプト（レシピ）の三点整備」</strong>——は、社内報の品質向上と採用広報転用の両方に直結します。
+      年間100本超の社内報は、豊富な一次情報の宝庫です。しかし採用サイトの社員インタビューは外部ライターに委託し、<strong>「書いてほしい内容を伝えきれず、半分以上を書き直す」</strong>状況が続いています。
     </p>
     <p class="s-body">
-      記事の目的分類（エンゲージメント向上、挑戦促進等）と形式分類（対話形式、一人称等）のどちらを軸にするかは、コンテンツの受け手（社員なのか候補者なのか）によって変わります。この設計を先に固めることで、レシピとヒアリング項目が自然に導かれます。
+      キックオフ資料で示されたウェブサイト戦略——<strong>「コンテンツを最重要視し、経営・人・挑戦の物語を蓄積する」</strong>——を実現するには、社内報で生まれる一次情報を社外コンテンツに変換するパイプラインが必要です。
     </p>
 
     <div class="stat-grid">
@@ -411,13 +393,13 @@
         <div class="stat-label">外部ライター原稿の<br>書き直し率</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
-        <div class="stat-label">社外転用された<br>社内報コンテンツ</div>
+        <div class="stat-num">20-30</div>
+        <div class="stat-label">今年度 重点深掘り<br>ニュース目標（本）</div>
       </div>
     </div>
 
     <div class="insight-box">
-      <strong>構造的に同型の問題：</strong>「メディア立ち上げに近いプロセス」という定例会議での議論が示す通り、貴社の社内報は「編集方針なきまま制作が進む創刊期のメディア」と同じ構造を持っています。編集方針を先に定めることで、コンテンツの種類・KPI・レシピ設計がトリクル構造で整理できます。
+      <strong>キックオフ資料との対応：</strong>本プログラムは、貴社CCチームの4領域のうち「社内広報」と「社外広報（採用広報）」「ウェブサイト（コンテンツ蓄積）」の3領域に横断的に貢献します。CIの品質・ルール基盤は、編集ガイドラインの整備を通じて間接的にカバーします。
     </div>
   </div>
 </section>
@@ -428,18 +410,19 @@
 <section class="page" id="concept">
   <div class="container">
     <div class="chap">03 — Concept</div>
-    <h2 class="s-heading">社内報を、<br>採用広報のエンジンにする</h2>
+    <h2 class="s-heading">「この指止まれ」を、<br>編集の仕組みにする</h2>
     <p class="s-lead">
-      語りの手綱を、自らが引いていく。<br>
-      外注依存から自走体制へ。社内に蓄積した語りの資産を、採用候補者に届くかたちに変換します。
+      語りの手綱を、自らが引いていく。外注依存から自走体制へ。<br>
+      StoryHubは制作代行者ではなく、編集体制の共同設計者として伴走します。
     </p>
 
     <div class="bq">
-      強度の高いナラティブは、一時的な取り組みではなく、<br>継続的な仕組みから生まれる。
+      経営の方向性のもとで、現場の挑戦が広がる状態をつくる。<br>
+      その状態を「仕組み」として持続させるのが、編集体制である。
     </div>
 
     <p class="s-body">
-      本提案の設計思想は、<strong>「語りの設計 → 制作 → 公開 → 蓄積 → 学習」の循環サイクルを社内に実装する</strong>ことです。コンテンツ制作代行（BPO）ではなく、貴社が「語りの主体」となるための体制構築支援（BPOwning: 自走）を最終ゴールとします。
+      貴社キックオフ資料のミッション——「経営広報（トップダウン）× この指止まれ（ボトムアップ）を接続する設計者」——は、まさに編集の仕事そのものです。本プログラムは、その接続を<strong>属人的な判断ではなく、再現可能な仕組み</strong>として社内に実装することを目指します。
     </p>
 
     <table class="comp-table">
@@ -451,22 +434,26 @@
       </thead>
       <tbody>
         <tr>
-          <td>外部ライター依存</td>
-          <td>自動インタビュー＋社内レシピ整備で、取材から記事化まで内製化。書き直し工数をゼロに近づける</td>
-        </tr>
-        <tr>
-          <td>社内報資産の死蔵</td>
-          <td>社内→社外の転用パイプラインを構築。同一の取材素材から社内報と採用記事を同時生成</td>
-        </tr>
-        <tr>
           <td>カテゴリー未整備</td>
-          <td>編集方針策定支援により、目的別カテゴリー・ヒアリング項目・レシピを一括設計</td>
+          <td>編集方針策定支援で、目的別カテゴリー・ヒアリング項目・レシピを一括設計。貴社既存の整理をベースに精緻化</td>
+        </tr>
+        <tr>
+          <td>部門Pushの仕組み不足</td>
+          <td>自動インタビュー＋標準レシピで「部門が記事初稿を提出 → CCがレビュー」体制をAI支援で構築</td>
+        </tr>
+        <tr>
+          <td>社外展開の未着手</td>
+          <td>社内→社外の転用パイプライン構築。同一の取材素材から社内報・採用記事・ウェブコンテンツを同時生成</td>
+        </tr>
+        <tr>
+          <td>外部ライター依存</td>
+          <td>自動インタビューと社内レシピ整備で取材から記事化まで内製化。書き直し工数を解消</td>
         </tr>
       </tbody>
     </table>
 
     <div class="insight-box">
-      <strong>既存StoryHub利用との連続性：</strong>本プログラムは、貴社が既にStoryHubで運用している社内報制作フローの延長線上にあります。新たなツール導入や学習コストは最小限に抑え、既存のレシピ・素材・ワークフローを採用広報向けに拡張する設計です。
+      <strong>StoryHubの立ち位置：</strong>プロダクトの提供者ではなく、編集体制構築の戦略的パートナー。ツールの使い方を教えるのではなく、「何を・誰に・どう語るか」の設計から共に考え、その実行をAI基盤で支える関係です。
     </div>
   </div>
 </section>
@@ -477,9 +464,9 @@
 <section class="page page-alt" id="program">
   <div class="container">
     <div class="chap">04 — Program</div>
-    <h2 class="s-heading">3つのフェーズで、<br>段階的に立ち上げる</h2>
+    <h2 class="s-heading">PoC から始め、<br>段階的に体制を構築する</h2>
     <p class="s-lead">
-      いきなり最初から自走はできません。編集方針の策定から始め、段階的に社内に「語る力」を移していきます。
+      まずは3ヶ月のPoCで編集方針を策定し、成果をもとに本格支援に移行します。貴社キックオフ資料のPhase設計と連動した段階設計です。
     </p>
 
     <table class="comp-table" style="margin-bottom: 48px;">
@@ -488,137 +475,143 @@
           <th>Phase</th>
           <th>テーマ</th>
           <th>期間</th>
-          <th>主な内容</th>
+          <th>貴社Phase対応</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Phase 0</td>
+          <td>PoC</td>
           <td>編集方針策定</td>
-          <td>1〜2ヶ月目</td>
-          <td>カテゴリー設計・ヒアリング項目標準化・レシピ一括整備</td>
+          <td>3ヶ月</td>
+          <td>Phase 1準備</td>
         </tr>
         <tr>
           <td>Phase 1</td>
-          <td>自動インタビュー導入</td>
-          <td>3〜4ヶ月目</td>
-          <td>AIインタビュー機能の実装・社員取材の自動化</td>
+          <td>AI編集体制の構築</td>
+          <td>4〜6ヶ月目</td>
+          <td>Phase 1: 部門Push × AI支援</td>
         </tr>
         <tr>
           <td>Phase 2</td>
-          <td>社外展開</td>
-          <td>5ヶ月目〜</td>
-          <td>社内報→採用コンテンツの転用パイプライン構築・運用開始</td>
+          <td>社外展開・自走化</td>
+          <td>7ヶ月目〜</td>
+          <td>Phase 2: 増幅者への進化</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Phase 0 -->
-    <div class="phase-full">
-      <div class="phase-tag">Phase 0 — 1〜2ヶ月目</div>
-      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">編集方針策定：語りの基盤をつくる</h4>
-      <p style="font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 20px;">
-        StoryHubが懇意とする広報・編集プロフェッショナルと連携し、社内報と採用広報を貫く編集方針を策定します。志村様が指摘された「カテゴリー・ヒアリング項目・レシピの三点整備」を、このフェーズで一括実現します。
+    <!-- PoC -->
+    <div class="highlight-box">
+      <h4>PoC：編集方針策定（3ヶ月）</h4>
+      <p>
+        StoryHubが懇意とする<strong>広報・編集プロフェッショナル</strong>と連携し、CCチームの編集基盤を策定します。貴社が既に言語化されている編集方針・コンテンツカテゴリの整理を出発点に、プロの知見を加えて体系化。「経営の意向により変化が速い部分」にも対応できる、柔軟かつ構造的な設計を目指します。
       </p>
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>成果物</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>コンテンツカテゴリーマップ</td>
-            <td>社内報と採用広報を横断する目的別カテゴリー体系。「経営起点の深掘り」「部門起点の紹介」「採用候補者向け転用」の三層で整理</td>
-          </tr>
-          <tr>
-            <td>標準ヒアリングシート</td>
-            <td>カテゴリー別の取材質問テンプレート。「具体例の引き出し」「感情の変遷」の二点を必ず含む設計</td>
-          </tr>
-          <tr>
-            <td>レシピセット</td>
-            <td>カテゴリー対応のStoryHubレシピ。社内報版と採用広報版を同時に整備</td>
-          </tr>
-          <tr>
-            <td>編集ガイドライン</td>
-            <td>トーン＆マナー、文字数基準、配信チャネル別のフォーマット規定</td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>成果物</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>コンテンツカテゴリーマップ</td>
+          <td>「経営起点の深掘り」「部門起点の紹介」「採用候補者向け」の三層で整理。目的分類と形式分類の両軸を統合</td>
+        </tr>
+        <tr>
+          <td>標準ヒアリングシート</td>
+          <td>カテゴリー別の取材質問テンプレート。「具体例の引き出し」「感情の変遷」を必ず含む設計</td>
+        </tr>
+        <tr>
+          <td>レシピセット</td>
+          <td>カテゴリー対応のStoryHubレシピ。社内報版に加え、採用広報への転用版を同時整備</td>
+        </tr>
+        <tr>
+          <td>編集ガイドライン</td>
+          <td>トーン＆マナー、文字数基準、配信チャネル別フォーマット。CC全体の品質基盤として機能</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <strong>PoCの位置づけ：</strong>PoCは「試用」ではなく、Phase 1以降の品質基盤を作る工程です。ここで策定したカテゴリーとヒアリング項目が、自動インタビューの品質を決定し、社外展開の可否を左右します。PoC完了後、成果をもとに継続支援の要否を判断いただきます。
     </div>
 
     <!-- Phase 1 -->
-    <div class="phase-full">
-      <div class="phase-tag">Phase 1 — 3〜4ヶ月目</div>
-      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">自動インタビュー導入：取材を自動化する</h4>
+    <div class="phase-full" style="margin-top: 32px;">
+      <div class="phase-tag">Phase 1 — AI編集体制の構築</div>
+      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">「部門Push × CCレビュー」を仕組みにする</h4>
       <p style="font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 20px;">
-        StoryHubの自動インタビュー機能を導入し、社員取材の品質を標準化します。外部ライターへの委託を段階的に解消し、取材から記事化までの内製体制を構築します。
+        PoCで策定した編集方針をもとに、自動インタビュー機能を導入。各部門の「新しい取り組み紹介」を、AIインタビューで効率的に取材し、CCチームはレビュー・品質管理に集中できる体制を構築します。
       </p>
       <table class="comp-table">
         <thead>
           <tr>
-            <th>活用シーン</th>
-            <th>内容</th>
+            <th>「この指止まれ」の仕組み化</th>
+            <th>StoryHubの支援</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>部門起点の取り組み紹介</td>
-            <td>各部門から依頼のある「新しい取り組み紹介」を、AIインタビューで効率的に取材。年間発信本数の維持・拡大に貢献</td>
+            <td>部門の挑戦を言語化する</td>
+            <td>自動インタビューが標準ヒアリング項目に基づき社員から具体例・感情の変遷を引き出す</td>
           </tr>
           <tr>
-            <td>採用向け社員インタビュー</td>
-            <td>Phase 0で設計した標準ヒアリングシートに基づき、具体例と感情の変遷を必ず引き出す構造化インタビューを自動実施</td>
+            <td>CCがレビューし発信する</td>
+            <td>カテゴリー対応レシピでAIが初稿を生成。CCは編集・品質確認に集中</td>
           </tr>
           <tr>
-            <td>経営層メッセージ</td>
-            <td>月1本の経営起点コンテンツの取材補助。対面取材前の論点整理や、フォローアップ取材に活用</td>
+            <td>他部署の挑戦が見えるようにする</td>
+            <td>社内報として全社配信。「点をつなぎ、共感・協業を生む」サイクルを支える</td>
+          </tr>
+          <tr>
+            <td>経営層メッセージを届ける</td>
+            <td>月1本の経営起点コンテンツの取材補助。対面取材前の論点整理にも活用</td>
           </tr>
         </tbody>
       </table>
       <div class="insight-box" style="margin-top: 20px;">
-        <strong>品質担保の設計：</strong>秋谷様・志村様のご指摘の通り、カテゴリーとヒアリング項目が先に固まっていれば、AIインタビューの品質は担保できます。Phase 0の編集方針策定が、Phase 1の品質基盤になります。
+        <strong>KPIとの連動：</strong>今年度の新KPI「能動的ヒアリング本数」は、自動インタビュー機能の導入件数と直接連動します。重点深掘りニュース20-30本に対して、どれだけ能動的に取材できたかを定量的に追跡できます。
       </div>
     </div>
 
     <!-- Phase 2 -->
     <div class="phase-full">
-      <div class="phase-tag">Phase 2 — 5ヶ月目〜継続</div>
-      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">社外展開：社内報を採用コンテンツに転用する</h4>
+      <div class="phase-tag">Phase 2 — 社外展開・自走化</div>
+      <h4 style="font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">CCを「発信者」から「増幅者」へ進化させる</h4>
       <p style="font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-bottom: 20px;">
-        社内報の制作過程で蓄積された素材・記事を、採用候補者向けコンテンツとして再構成して公開します。StoryHubの「1ソースマルチユース」機能により、同一の取材素材から社内報と採用記事を同時生成する運用を確立します。
+        社内報の制作過程で蓄積された素材を、採用広報コンテンツ・ウェブサイトコンテンツとして社外に展開。キックオフ資料のPhase 2「広報は発信者から認知を上げる増幅者へ進化する」を実現します。
       </p>
-
       <table class="comp-table">
         <thead>
           <tr>
             <th>社内報カテゴリー</th>
-            <th>採用広報への転用</th>
+            <th>社外展開先</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>部門の取り組み紹介</td>
-            <td>「チームで働く」シリーズ — 部門の雰囲気・仕事の進め方を候補者向けに再構成</td>
+            <td>採用サイト「チームで働く」シリーズ / ウェブサイトの事例コンテンツ</td>
           </tr>
           <tr>
             <td>経営施策の深掘り</td>
-            <td>「経営者の思い」シリーズ — 候補者が「経営の方向性」を理解するための記事に変換</td>
+            <td>ウェブサイト「経営の方向性」コンテンツ / 採用広報「経営者メッセージ」</td>
           </tr>
           <tr>
             <td>社員の挑戦・成長記録</td>
-            <td>「入社後のリアル」シリーズ — キャリアパス・成長環境を伝える採用コンテンツに</td>
+            <td>採用サイト「入社後のリアル」シリーズ / オウンドメディア</td>
           </tr>
           <tr>
-            <td>新制度・働き方紹介</td>
-            <td>「オリックス生命の働き方」 — 福利厚生・制度を候補者の関心に即して紹介</td>
+            <td>座談会コンテンツ</td>
+            <td>採用サイト「社員の対話」/ ウェブサイト（経営・人・挑戦の物語として蓄積）</td>
           </tr>
         </tbody>
       </table>
-
       <div class="insight-box" style="margin-top: 20px;">
-        <strong>既存の配信基盤との接続：</strong>現在の社内報は全社員に毎朝9時メール配信されています。採用広報コンテンツは採用サイトへの掲載を起点に、適宜SNS・採用媒体へ展開します。社内報と採用広報で配信チャネルは分離しつつ、素材は共通化します。
+        <strong>ウェブサイト戦略との接続：</strong>キックオフ資料の「コンテンツを最重要視し、経営・人・挑戦の物語を蓄積して"見つかる資産"にする」方針と直結。社内報→採用広報→ウェブサイトの3段階転用パイプラインにより、1回の取材が複数チャネルの資産になります。
       </div>
     </div>
   </div>
@@ -632,7 +625,7 @@
     <div class="chap">05 — Platform</div>
     <h2 class="s-heading">StoryHubプラットフォームの<br>拡張活用</h2>
     <p class="s-lead">
-      貴社が既に利用しているStoryHubの機能に加え、新機能を組み合わせて採用広報の体制を構築します。
+      貴社が既に利用しているStoryHubの機能に加え、新機能を組み合わせてAI編集体制を構築します。
     </p>
 
     <div class="product-grid">
@@ -640,64 +633,61 @@
         <div class="product-card-name">Studio</div>
         <p>
           <strong style="font-weight: 500; color: var(--ink);">既にご利用中</strong><br>
-          社内報レシピ・ニュースレター生成で活用中。採用広報向けレシピの追加、カテゴリー別テンプレートの整備で、社内→社外の転用ワークフローを実装
+          社内報レシピの運用に加え、PoCで設計するカテゴリー別レシピセットを実装。社内報と採用広報の両方に対応するマルチユースワークフローを構築
         </p>
       </div>
       <div class="product-card">
         <div class="product-card-name">Interview</div>
         <p>
-          <strong style="font-weight: 500; color: var(--ink);">新規導入（6月〜）</strong><br>
-          AIによる構造化インタビュー。Phase 0で設計した標準ヒアリングシートに基づき、社員が自律的に回答。具体例・感情の変遷を確実に引き出す
+          <strong style="font-weight: 500; color: var(--ink);">Phase 1で導入</strong><br>
+          AIによる構造化インタビュー。「部門Push」の標準化ツールとして、各部門の社員が自律的に回答。具体例・感情の変遷を確実に引き出す
         </p>
       </div>
       <div class="product-card">
         <div class="product-card-name">Brand Memory</div>
         <p>
           <strong style="font-weight: 500; color: var(--ink);">拡張活用</strong><br>
-          編集ガイドライン・カテゴリーマップ・過去素材を一元管理。担当者が異動しても語りの基準が断絶しない。社内報と採用広報の一貫性を担保
+          編集ガイドライン・カテゴリーマップ・経営の方向性資料を一元管理。担当者が異動しても語りの基準が断絶しない。経営の意向変化にも柔軟に対応
         </p>
       </div>
       <div class="product-card">
-        <div class="product-card-name">Version &amp; Folder</div>
+        <div class="product-card-name">1ソースマルチユース</div>
         <p>
-          <strong style="font-weight: 500; color: var(--ink);">リニューアルで追加</strong><br>
-          コンテンツ・素材のフォルダ管理、編集履歴の全バージョン記録。以前からのご要望を実現。社内報/採用広報のコンテンツを整理して管理
+          <strong style="font-weight: 500; color: var(--ink);">Phase 2で活用</strong><br>
+          過去素材の再利用機能により、1回の取材から社内報・採用記事・ウェブコンテンツを同時生成。外部ライター委託を構造的に不要にする
         </p>
       </div>
     </div>
 
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 32px;">1ソースマルチユース：同じ取材素材から複数コンテンツを生成</h3>
-    <p class="s-body">
-      StoryHubリニューアルにより、過去にアップロードした素材や既存コンテンツをチェックボックスで選択し、新記事の素材として再利用できるようになりました。これにより、<strong>1回の社員インタビューから社内報記事と採用コンテンツを同時に生成</strong>する運用が可能です。
-    </p>
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 32px;">AI編集体制のワークフロー</h3>
 
     <div class="service-flow">
       <div class="flow-step">
         <div class="flow-num">1</div>
         <div class="flow-content">
-          <div class="flow-title">取材素材のアップロード</div>
-          <div class="flow-desc">AIインタビュー or 対面取材の音声・テキストをStoryHubに格納</div>
+          <div class="flow-title">部門からの取材（自動インタビュー or 対面）</div>
+          <div class="flow-desc">標準ヒアリングシートに基づくAIインタビュー、または対面取材の音声をStoryHubに格納</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">2</div>
         <div class="flow-content">
-          <div class="flow-title">社内報記事の生成</div>
-          <div class="flow-desc">社内報カテゴリー対応レシピで記事を生成。ニュースレター版（短尺ベタ貼り）に最適化</div>
+          <div class="flow-title">AI初稿生成（カテゴリー対応レシピ）</div>
+          <div class="flow-desc">社内報用レシピで自動生成。ニュースレター版（短尺ベタ貼り）に最適化した出力</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">3</div>
         <div class="flow-content">
-          <div class="flow-title">採用コンテンツの生成</div>
-          <div class="flow-desc">同じ素材を選択し、採用広報向けレシピで変換。候補者の関心に合わせてトーンと構成を調整</div>
+          <div class="flow-title">CCレビュー・品質管理</div>
+          <div class="flow-desc">編集ガイドラインに基づきCCチームが品質確認。バージョン管理で編集履歴を完全記録</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">4</div>
         <div class="flow-content">
-          <div class="flow-title">レビュー・公開</div>
-          <div class="flow-desc">広報チームが品質確認の上、社内報はメール配信、採用コンテンツは採用サイトへ公開</div>
+          <div class="flow-title">社内配信 + 社外転用（Phase 2以降）</div>
+          <div class="flow-desc">同じ素材から採用広報向けレシピで変換。社内報はメール配信、採用コンテンツはウェブサイトへ</div>
         </div>
       </div>
     </div>
@@ -706,60 +696,76 @@
 
 <div class="divider"></div>
 
-<!-- 6. 自走化支援 -->
-<section class="page page-alt" id="training">
+<!-- 6. 編集プロフェッショナル支援 -->
+<section class="page page-alt" id="editorial">
   <div class="container">
-    <div class="chap">06 — Training</div>
-    <h2 class="s-heading">自走化支援：<br>語りの力を社内に移転する</h2>
+    <div class="chap">06 — Editorial Support</div>
+    <h2 class="s-heading">編集プロフェッショナルによる<br>伴走支援</h2>
     <p class="s-lead">
-      外注依存から自走体制へ。制作を代行するのではなく、貴社の広報チームが自ら語り続ける力を育てます。
+      StoryHubが懇意とする広報・編集のプロフェッショナルが、PoC期間中に編集方針策定をリードします。
     </p>
 
-    <p class="s-body">
-      月1回の勉強会・ワークショップを通じて、編集方針の運用、AIツール活用、コンテンツ品質の向上を段階的に進めます。座学ではなく、実際のコンテンツを題材に「書きながら学ぶ」実践形式です。
-    </p>
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">支援内容</h3>
 
     <table class="comp-table">
       <thead>
         <tr>
-          <th>回</th>
-          <th>テーマ</th>
-          <th>内容</th>
+          <th>フェーズ</th>
+          <th>支援内容</th>
+          <th>頻度</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>第1〜2回</td>
-          <td>編集方針の実装</td>
-          <td>Phase 0で策定したカテゴリー・ヒアリング項目を実運用に落とし込む。レシピの使い分け演習</td>
+          <td>PoC期間</td>
+          <td>編集方針策定ワークショップ（経営層・CC・人事を交えた対話型セッション）</td>
+          <td>3-4回</td>
         </tr>
         <tr>
-          <td>第3〜4回</td>
-          <td>インタビュー設計</td>
-          <td>「具体例の引き出し」「感情の変遷」を軸にした取材技法。AIインタビューの活用実践</td>
+          <td>PoC期間</td>
+          <td>コンテンツカテゴリー設計・ヒアリング項目標準化・レシピ設計のレビュー</td>
+          <td>随時</td>
         </tr>
         <tr>
-          <td>第5〜6回</td>
-          <td>社内→社外の転用技術</td>
-          <td>同一素材から社内報と採用記事を作り分ける編集技術。読み手の違いに応じたトーン調整</td>
+          <td>Phase 1以降</td>
+          <td>月次編集会議への参加・コンテンツ品質レビュー・レシピチューニング</td>
+          <td>月1-2回</td>
         </tr>
         <tr>
-          <td>第7〜8回</td>
-          <td>AIツール活用の深化</td>
-          <td>StoryHub新機能の実践活用。素材再利用、バージョン管理、フォルダ管理の最適運用</td>
-        </tr>
-        <tr>
-          <td>第9〜10回</td>
-          <td>品質管理・KPI設計</td>
-          <td>コンテンツ品質チェックの仕組み化。採用広報の効果測定指標の設計</td>
-        </tr>
-        <tr>
-          <td>第11〜12回</td>
-          <td>自走計画の策定</td>
-          <td>社内ナラティブガバナンスの設計。担当者引き継ぎ・体制の恒久化。今後のロードマップ</td>
+          <td>Phase 1以降</td>
+          <td>勉強会・ワークショップ（社内担当者のナラティブ力育成）</td>
+          <td>月1回</td>
         </tr>
       </tbody>
     </table>
+
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 32px;">編集プロフェッショナルのスキルセット</h3>
+
+    <p class="s-body">
+      StoryHubがアサインする編集プロフェッショナルは、以下のスキルセットを備えたメディア経験者です。
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-num" style="font-size: 18px;">Strategy</div>
+        <h4>編集戦略設計</h4>
+        <p>メディア立ち上げ・編集方針策定の実績。目的別カテゴリー設計、KPI設計、コンテンツカレンダー策定</p>
+      </div>
+      <div class="card">
+        <div class="card-num" style="font-size: 18px;">Editorial</div>
+        <h4>取材・編集実務</h4>
+        <p>インタビュー設計・質問設計・記事構成の実務経験。社内報から対外コンテンツまでのトーン管理</p>
+      </div>
+      <div class="card">
+        <div class="card-num" style="font-size: 18px;">AI Ops</div>
+        <h4>AI編集ワークフロー</h4>
+        <p>StoryHubを活用したAI編集体制の構築経験。プロンプト設計・レシピ最適化・品質管理フロー設計</p>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <strong>体制：</strong>StoryHub経由で編集プロフェッショナルをアサインし、StoryHubがプロジェクトマネジメントを担当します。契約形態の詳細は別途ご相談とさせていただきますが、StoryHubとの準委任契約を基本形としてご提案予定です。
+    </div>
   </div>
 </section>
 
@@ -771,51 +777,72 @@
     <div class="chap">07 — Pricing</div>
     <h2 class="s-heading">費用体系</h2>
     <p class="s-lead">
-      既存のStoryHub利用料に加え、編集方針策定と自走化支援のプログラム費用が発生します。
+      まずは3ヶ月のPoCで編集基盤を構築し、成果をもとに本格支援への移行を判断いただきます。
     </p>
+
+    <!-- PoC -->
+    <div class="highlight-box">
+      <h4>PoC：編集方針策定（3ヶ月）— 150〜200万円（税抜）</h4>
+      <p>
+        コンテンツカテゴリーマップ、標準ヒアリングシート、レシピセット、編集ガイドラインの策定。<br>
+        編集プロフェッショナルによるワークショップ3-4回、レシピ設計・レビューを含む。<br>
+        <strong>StoryHub既存利用料は現行契約を据え置き。</strong>
+      </p>
+    </div>
+
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 32px;">本格支援（Phase 1-2 / PoC成果をもとに正式見積）</h3>
 
     <table class="comp-table">
       <thead>
         <tr>
           <th>項目</th>
           <th>内容</th>
+          <th>費用目安</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>編集方針策定（Phase 0）</td>
-          <td>カテゴリーマップ、標準ヒアリングシート、レシピセット、編集ガイドラインの一括設計。外部編集プロフェッショナルの招聘費を含む</td>
-        </tr>
-        <tr>
-          <td>自動インタビュー機能（Phase 1〜）</td>
-          <td>StoryHub Interview の利用料。既存プランへの追加オプション</td>
-        </tr>
-        <tr>
-          <td>月次伴走支援（Phase 1〜2）</td>
+          <td>月次伴走支援</td>
           <td>月次編集会議、レシピ調整、コンテンツレビュー、勉強会（月1回）</td>
+          <td>40〜50万円/月</td>
+        </tr>
+        <tr>
+          <td>StoryHubアップグレード</td>
+          <td>上位プランへの移行（レシピ数・クレジット拡充）</td>
+          <td>+10〜20万円/月</td>
+        </tr>
+        <tr>
+          <td>自動インタビュー機能</td>
+          <td>StoryHub Interview オプション追加</td>
+          <td>+5〜10万円/月</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 500; color: var(--ink);">月額合計</td>
+          <td></td>
+          <td style="font-weight: 500; color: var(--ink);">55〜80万円/月</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="insight-box">
-      <strong>費用の詳細は、Phase 0の範囲確定後に正式見積をご提示します。</strong>まずは5月1日の次回定例にて、編集方針策定支援の具体的なスコープとスケジュールをすり合わせ、その上で費用をご提案いたします。山口様よりご指摘いただいた通り、「業務効率化への貢献が明確であれば予算を取りに行く価値がある」領域として、ROIを定量的にお示しします。
-    </div>
-
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 40px;">ROI試算（参考）</h3>
+    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 32px;">ROI試算（参考）</h3>
 
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-num" style="font-size: 28px;">外注費削減</div>
-        <div class="stat-label">外部ライター委託費（1本10〜30万円）×年間本数分の削減。書き直し工数の解消</div>
+        <div class="stat-num" style="font-size: 24px;">外注費削減</div>
+        <div class="stat-label">外部ライター委託費（1本10〜30万円）×年間本数分。<br>書き直し工数の解消を含む</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" style="font-size: 28px;">工数削減</div>
-        <div class="stat-label">自動インタビューにより取材調整・立会い工数を大幅圧縮。広報チームの戦略業務への時間を確保</div>
+        <div class="stat-num" style="font-size: 24px;">工数削減</div>
+        <div class="stat-label">自動インタビューで取材調整・立会い工数を圧縮。<br>CCチームの戦略業務への時間を確保</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" style="font-size: 28px;">採用効率</div>
-        <div class="stat-label">自社コンテンツ経由のオーガニック応募獲得。媒体費1名あたり70〜100万円の削減可能性</div>
+        <div class="stat-num" style="font-size: 24px;">採用効率</div>
+        <div class="stat-label">自社コンテンツ経由のオーガニック応募。<br>媒体費1名あたり70〜100万円の削減可能性</div>
       </div>
+    </div>
+
+    <div class="insight-box">
+      <strong>段階的な費用発生：</strong>PoC期間中のStoryHub利用料は現行契約を据え置きます。本格支援への移行は、PoC完了後に成果を定量的に評価いただいた上で判断いただく形です。「業務効率化への貢献が明確であれば予算を取りに行く価値がある」——山口様のお言葉をそのまま実現する設計です。
     </div>
   </div>
 </section>
@@ -828,7 +855,7 @@
     <div class="chap">08 — Next Step</div>
     <h2 class="s-heading">次のステップ</h2>
     <p class="s-lead">
-      5月1日の次回定例に向けて、以下のステップで進めます。
+      PoC開始に向けて、以下のステップで進めます。
     </p>
 
     <div class="service-flow">
@@ -836,28 +863,28 @@
         <div class="flow-num">1</div>
         <div class="flow-content">
           <div class="flow-title">本提案のご確認・フィードバック</div>
-          <div class="flow-desc">本資料の内容について、広報チーム内でご確認いただき、ご質問・ご要望をお知らせください</div>
+          <div class="flow-desc">本資料の内容について、CCチーム内でご確認ください。スコープ・費用感へのご質問・ご要望をお知らせください</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">2</div>
         <div class="flow-content">
-          <div class="flow-title">シリーズ企画の趣旨資料ご送付（秋谷様）</div>
-          <div class="flow-desc">シリーズ記事の構成案をStoryHubへご送付いただき、素材としての精度検証を開始</div>
+          <div class="flow-title">貴社の既存カテゴリー整理のご共有</div>
+          <div class="flow-desc">「編集方針」「コンテンツカテゴリ設計」の手元情報をご共有いただき、PoC設計の出発点とします</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">3</div>
         <div class="flow-content">
-          <div class="flow-title">5/1 定例：編集方針策定支援の具体提案</div>
-          <div class="flow-desc">Phase 0のスコープ・スケジュール・費用を詳細にご提案。外部編集プロフェッショナルの紹介</div>
+          <div class="flow-title">PoCスコープの確定・契約</div>
+          <div class="flow-desc">意見交換を経てPoCの具体的なスコープとスケジュールを確定。契約形態（準委任契約）の詳細をご相談</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">4</div>
         <div class="flow-content">
-          <div class="flow-title">6月：自動インタビュー プロトタイプ提供</div>
-          <div class="flow-desc">榊原よりUX要件のすり合わせを経て、品質を整えたプロトタイプをご提供</div>
+          <div class="flow-title">PoCキックオフ</div>
+          <div class="flow-desc">編集プロフェッショナルを含むチーム編成、第1回ワークショップの日程確定。最速で6月開始を想定</div>
         </div>
       </div>
     </div>
