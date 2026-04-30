@@ -377,6 +377,9 @@
     .rm-phase { border-right: none; border-bottom: 1px solid var(--paper-3); }
     .wf-steps { grid-template-columns: 1fr 1fr; gap: 16px; }
     .wf-step { border-right: none; }
+    /* Story OS mapping rows */
+    [style*="grid-template-columns: 1fr 48px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 48px 1fr"] > div:nth-child(2) { padding: 4px 0 !important; }
   }
 </style>
 </head>
@@ -389,8 +392,7 @@
     <a href="#issue">課題</a>
     <a href="#concept">コンセプト</a>
     <a href="#program">プログラム</a>
-    <a href="#platform">プラットフォーム</a>
-    <a href="#pricing">費用</a>
+    <a href="#platform">Story OS</a>
     <a href="#closing">Next</a>
   </div>
 </nav>
@@ -405,12 +407,11 @@
   <div class="container" style="position: relative; z-index: 1;">
     <div class="hero-tag">Orix Life Insurance &times; StoryHub</div>
     <div class="hero-sub">編集体制構築支援プログラム</div>
-    <h1 class="hero-h1">経営広報の実践を、<br><em>編集の仕組みにする。</em></h1>
+    <h1 class="hero-h1">AI時代の広報の新基準を、<br><em>共に立ち上げる。</em></h1>
     <p class="hero-lead">
-      「経営の方向性のもとで、現場の挑戦が広がる状態をつくる」——<br>
-      貴社CCチームのミッションを実現するために、<br>
-      編集方針の策定からAI支援体制の構築まで、<br>
-      戦略的パートナーとして伴走します。
+      AIインタビューからマルチチャネル展開まで——<br>
+      国内外にまだ前例のないPR Opsの仕組みを、<br>
+      貴社のCI基盤の上に、共に立ち上げる提案です。
     </p>
   </div>
 </section>
@@ -422,7 +423,7 @@
     <h2 class="s-heading">この提案について</h2>
     <p class="s-lead">
       本提案は「新しいツールの導入」ではありません。<br>
-      貴社が既にStoryHubで構築した社内報制作フローを基盤に、CCチーム全体の編集体制を段階的に強化する支援プログラムです。
+      貴社が設計するCI基盤の上に、StoryHubのStory OSを載せることで、品質維持と発信の自由度向上を両立する編集体制を段階的に構築する支援プログラムです。
     </p>
 
     <p class="s-body">
@@ -516,42 +517,145 @@
 <section class="page" id="concept">
   <div class="container">
     <div class="chap">03 — Concept</div>
-    <h2 class="s-heading">「この指止まれ」を、<br><em>編集の仕組みにする</em></h2>
+    <h2 class="s-heading">CI基盤を、<br><em>実運用に載せる</em></h2>
     <p class="s-lead">
-      語りの手綱を、自らが引いていく。<br>
-      StoryHubは制作代行者ではなく、編集体制の共同設計者として伴走します。
+      ルール・仕組み・運用の三点が整いつつある今、<br>
+      次に必要なのは、それを日々のCC業務で回すためのインフラです。<br>
+      Story OSはその実運用レイヤーを担います。
     </p>
 
-    <!-- Concept Diagram: Top-down × Bottom-up -->
-    <div class="concept-diagram">
-      <div class="cd-title">CCチームの役割 = 接続の設計者</div>
-      <div class="cd-cols">
-        <div class="cd-box">
-          <div class="cd-box-label">Top-Down</div>
-          <div class="cd-box-title">経営広報</div>
-          <div class="cd-box-desc">大きな方向性を<br>「理解できる言葉」に翻訳して届ける</div>
-        </div>
-        <div class="cd-connector">
-          <div class="cd-arrow">&times;</div>
-          <div class="cd-arrow-label">接続</div>
-        </div>
-        <div class="cd-box">
-          <div class="cd-box-label">Bottom-Up</div>
-          <div class="cd-box-title">この指止まれ</div>
-          <div class="cd-box-desc">現場の挑戦を見つけ<br>共感を起点に動きを生む</div>
-        </div>
-      </div>
-      <div class="cd-bottom">
-        <div class="cd-result">
-          <div class="cd-result-title">StoryHubの役割：この接続を「仕組み」として持続させる</div>
-          <div class="cd-result-desc">編集方針 × 自動インタビュー × カテゴリー対応レシピ × 社外転用パイプライン</div>
+    <!-- Layered Architecture: Moribiru-style -->
+    <style>
+      .os-diagram { margin: 32px 0 40px; }
+      .os-diagram-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
+      .os-diagram-title small { font-weight: 400; color: var(--ink-3); }
+      .os-layers { display: flex; flex-direction: column; gap: 0; }
+      .os-layer {
+        display: flex; align-items: center; min-height: 52px;
+        border-bottom: 1px solid rgba(0,0,0,0.06); padding: 8px 0;
+      }
+      .os-layer-label {
+        width: 120px; flex-shrink: 0; font-size: 13px; font-weight: 700;
+        color: var(--ink); line-height: 1.4; padding-left: 4px;
+      }
+      .os-layer-label small { display: block; font-weight: 400; color: var(--ink-3); font-size: 11px; }
+      .os-layer-pills { flex: 1; display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px; }
+      .os-pill {
+        font-size: 12px; padding: 5px 14px; border-radius: 14px;
+        font-weight: 500; white-space: nowrap;
+      }
+      /* Output layer */
+      .os-layer-output { background: var(--ink); border-radius: 8px 8px 0 0; }
+      .os-layer-output .os-layer-label { color: rgba(250,250,250,0.6); }
+      .os-layer-output .os-pill { background: rgba(250,250,250,0.15); color: var(--paper); }
+      /* Story OS layer */
+      .os-layer-story {
+        border: 2.5px solid var(--ink); border-radius: 0;
+        background: rgba(13,13,13,0.03); position: relative; padding: 10px 0 !important;
+      }
+      .os-layer-story::before {
+        content: 'StoryHubが実装'; position: absolute; top: -10px; right: 14px;
+        font-size: 10px; font-weight: 700; color: var(--paper);
+        background: var(--ink); padding: 2px 10px; border-radius: 4px;
+        letter-spacing: 0.04em;
+      }
+      .os-layer-story .os-layer-label { color: var(--ink); }
+      .os-layer-story .os-pill { background: rgba(13,13,13,0.08); color: var(--ink); font-weight: 600; }
+      /* CC業務 layer */
+      .os-layer-cc { background: rgba(200,210,225,0.15); border-radius: 0; }
+      .os-layer-cc .os-pill { background: #e2e8f0; color: #334155; }
+      /* CI基盤 layer */
+      .os-layer-ci { background: rgba(200,210,225,0.08); border-radius: 0; }
+      .os-layer-ci .os-pill:nth-child(1) { background: #fce4ec; color: #880e4f; }
+      .os-layer-ci .os-pill:nth-child(2) { background: #e3f2fd; color: #1565c0; }
+      .os-layer-ci .os-pill:nth-child(3) { background: #e8f5e9; color: #2e7d32; }
+      /* 対象者 layer */
+      .os-layer-audience { border-radius: 8px 8px 0 0; background: rgba(255,243,224,0.3); }
+      .os-layer-audience .os-pill { background: #fff3e0; color: #e65100; border-radius: 4px; font-weight: 600; }
+      .os-diagram-main { flex: 1; min-width: 0; }
+      @media (max-width: 768px) {
+        .os-diagram-wrap { flex-direction: column; }
+        .os-diagram-side { width: 100%; flex-direction: row; flex-wrap: wrap; }
+        .os-layer-label { width: 90px; font-size: 12px; }
+      }
+    </style>
+
+    <div class="os-diagram">
+      <div class="os-diagram-main">
+        <div class="os-diagram-title">CC業務が「仕組みで回る」全体像</div>
+        <div class="os-layers">
+          <!-- 発信対象 layer (top) -->
+          <div class="os-layer os-layer-audience">
+            <div class="os-layer-label">発信対象</div>
+            <div class="os-layer-pills">
+              <span class="os-pill">社員</span>
+              <span class="os-pill">経営層</span>
+              <span class="os-pill">採用候補者</span>
+              <span class="os-pill">ステークホルダー</span>
+            </div>
+          </div>
+
+          <!-- コンテンツ layer -->
+          <div class="os-layer os-layer-output">
+            <div class="os-layer-label">コンテンツ<small>（発信物）</small></div>
+            <div class="os-layer-pills">
+              <span class="os-pill">社内報</span>
+              <span class="os-pill">経営広報</span>
+              <span class="os-pill">採用広報</span>
+              <span class="os-pill">ウェブサイト</span>
+              <span class="os-pill">ニュースレター</span>
+            </div>
+          </div>
+
+          <!-- CC業務 layer -->
+          <div class="os-layer os-layer-cc">
+            <div class="os-layer-label">CC業務<small>（編集体制）</small></div>
+            <div class="os-layer-pills">
+              <span class="os-pill">取材・ヒアリング</span>
+              <span class="os-pill">編集・レビュー</span>
+              <span class="os-pill">配信管理</span>
+              <span class="os-pill">効果測定</span>
+            </div>
+          </div>
+
+          <!-- Story OS layer — 黒子として間に入る -->
+          <div class="os-layer" style="background: rgba(13,13,13,0.04); border-top: 1px dashed rgba(0,0,0,0.15); border-bottom: 1px dashed rgba(0,0,0,0.15); padding: 10px 0;">
+            <div class="os-layer-label" style="color: var(--ink-3); font-weight: 500;">Story OS<small style="color: var(--ink-3);">（StoryHub）</small></div>
+            <div class="os-layer-pills">
+              <span class="os-pill" style="background: rgba(13,13,13,0.06); color: var(--ink-2); font-weight: 500; font-size: 11px;">Brand Memory</span>
+              <span class="os-pill" style="background: rgba(13,13,13,0.06); color: var(--ink-2); font-weight: 500; font-size: 11px;">Studio</span>
+              <span class="os-pill" style="background: rgba(13,13,13,0.06); color: var(--ink-2); font-weight: 500; font-size: 11px;">Interview</span>
+              <span class="os-pill" style="background: rgba(13,13,13,0.06); color: var(--ink-2); font-weight: 500; font-size: 11px;">1Source Multi-Use</span>
+              <span class="os-pill" style="background: rgba(13,13,13,0.06); color: var(--ink-2); font-weight: 500; font-size: 11px;">レシピ管理</span>
+            </div>
+          </div>
+
+          <!-- CI基盤 layer -->
+          <div class="os-layer os-layer-ci" style="border-radius: 0 0 8px 8px; border-bottom: none;">
+            <div class="os-layer-label">CI基盤<small>（品質の土台）</small></div>
+            <div class="os-layer-pills">
+              <span class="os-pill">ルール — ガイドライン・レビュー基準</span>
+              <span class="os-pill">仕組み — 自動チェック・FAQ</span>
+              <span class="os-pill">運用 — CI申請・教育啓蒙</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="insight-box">
+      <strong>Story OSの役割：</strong>CI基盤で定めたルール・仕組み・運用を、日々のCC業務に組み込むための実運用レイヤーです。新しい概念を持ち込むのではなく、すでにある設計を現場で回せる形に落とし込みます。
+    </div>
+
+    <!-- Why "新基準" -->
+    <div class="insight-box" style="margin: 40px 0 32px;">
+      <strong>なぜ「新基準」なのか：</strong>AIを活用したPR Ops——AIが社員にインタビューし、CI準拠のコンテンツを社内報・採用広報・Webに同時展開する——この一連のプロセスを統合的に実現しているプレイヤーは、国内外を見渡しても現時点で確認されていません。海外ではHoneyjarやNotifiedが「PR OS」を標榜し始めていますが、実態はメディアリレーションや配信管理の統合にとどまっています。コンテンツ生成の起点からマルチチャネル展開までを一気通貫で回す仕組みは、まだ誰も確立していない領域です。
+    </div>
+
     <div class="bq">
-      強度の高いナラティブは、一時的な取り組みではなく、<br>
-      継続的な仕組みから生まれる。
+      基盤を作っただけでは、現場は変わらない。<br>
+      それを日常業務に組み込む仕組みがあって、<br>
+      初めて「仕組みで回る」状態になる。
     </div>
 
     <!-- Solution mapping -->
@@ -593,15 +697,15 @@
     <div class="value-outcome">
       <div class="vo-item">
         <div class="vo-label">Position</div>
-        <div class="vo-text">ツールベンダーではなく<br>編集体制の共同設計者</div>
+        <div class="vo-text">CI基盤を現場で回すための<br>実運用レイヤー</div>
       </div>
       <div class="vo-item">
         <div class="vo-label">Goal</div>
-        <div class="vo-text">制作代行（BPO）ではなく<br>自走体制の構築（BPOwning）</div>
+        <div class="vo-text">属人的な運用から<br>仕組みで回る体制へ</div>
       </div>
       <div class="vo-item">
         <div class="vo-label">Approach</div>
-        <div class="vo-text">貴社の既存整理をベースに<br>プロの知見で精緻化</div>
+        <div class="vo-text">既存のCI設計をベースに<br>業務フローへ落とし込む</div>
       </div>
     </div>
   </div>
@@ -722,66 +826,86 @@
 <!-- 5. プラットフォーム -->
 <section class="page" id="platform">
   <div class="container">
-    <div class="chap">05 — Platform</div>
-    <h2 class="s-heading">StoryHubプラットフォームの<br><em>拡張活用</em></h2>
+    <div class="chap">05 — Story OS</div>
+    <h2 class="s-heading">CI基盤を<br><em>実運用に載せる Story OS</em></h2>
     <p class="s-lead">
-      貴社が既に利用しているStoryHubの機能に加え、新機能を組み合わせてAI編集体制を構築します。
+      CI基盤で定めた「ルール・仕組み・運用」を、日々の業務で実際に回すために、<br>
+      Story OSの各機能がどう対応するかを整理しました。
     </p>
 
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-card-name">Studio</div>
-        <p>
-          <strong style="font-weight: 500; color: var(--ink);">既にご利用中</strong><br>
-          社内報レシピの運用に加え、PoCで設計するカテゴリー別レシピセットを実装。社内報と採用広報の両方に対応するマルチユースワークフローを構築
-        </p>
+    <!-- CI × Story OS mapping -->
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px;">
+      <!-- Row 1: ルール × Brand Memory -->
+      <div style="display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; border: 1px solid var(--paper-3); border-radius: 4px; overflow: hidden;">
+        <div style="background: var(--paper-2); padding: 24px 20px; border-right: 1px solid var(--paper-3);">
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;">CI基盤</div>
+          <div style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px;">ルール</div>
+          <div style="font-size: 12px; color: var(--ink-2); line-height: 1.7;">ガイドライン明確化・レビュー基準統一</div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--ink-3); border-right: 1px solid var(--paper-3);">&#8594;</div>
+        <div style="padding: 24px 20px;">
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;">Story OS</div>
+          <div style="font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--ink); margin-bottom: 6px;">Brand Memory</div>
+          <div style="font-size: 12px; color: var(--ink-2); line-height: 1.7;">編集ガイドライン・カテゴリーマップ・経営方向性資料を一元管理。担当者異動時も語りの基準が断絶しない。CIルールがコンテンツ生成に自動反映される</div>
+        </div>
       </div>
-      <div class="product-card">
-        <div class="product-card-name">Interview</div>
-        <p>
-          <strong style="font-weight: 500; color: var(--ink);">Phase 1で導入</strong><br>
-          AIによる構造化インタビュー。「部門Push」の標準化ツールとして、各部門の社員が自律的に回答。具体例・感情の変遷を確実に引き出す
-        </p>
+      <!-- Row 2: 仕組み × Studio + Interview -->
+      <div style="display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; border: 1px solid var(--paper-3); border-radius: 4px; overflow: hidden;">
+        <div style="background: var(--paper-2); padding: 24px 20px; border-right: 1px solid var(--paper-3);">
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;">CI基盤</div>
+          <div style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px;">仕組み</div>
+          <div style="font-size: 12px; color: var(--ink-2); line-height: 1.7;">FAQ・問合せアプリ化・自動チェック実装</div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--ink-3); border-right: 1px solid var(--paper-3);">&#8594;</div>
+        <div style="padding: 24px 20px;">
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;">Story OS</div>
+          <div style="font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--ink); margin-bottom: 6px;">Studio + Interview</div>
+          <div style="font-size: 12px; color: var(--ink-2); line-height: 1.7;">カテゴリー対応レシピとAI自動インタビューで「部門Push→CCレビュー」を半自動化。標準化された仕組みでチェック負担を解消し、品質を均一化する</div>
+        </div>
       </div>
-      <div class="product-card">
-        <div class="product-card-name">Brand Memory</div>
-        <p>
-          <strong style="font-weight: 500; color: var(--ink);">拡張活用</strong><br>
-          編集ガイドライン・カテゴリーマップ・経営方向性資料を一元管理。担当者異動時も語りの基準が断絶しない。経営の意向変化にも柔軟対応
-        </p>
+      <!-- Row 3: 運用 × 1Source Multi-Use -->
+      <div style="display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; border: 1px solid var(--paper-3); border-radius: 4px; overflow: hidden;">
+        <div style="background: var(--paper-2); padding: 24px 20px; border-right: 1px solid var(--paper-3);">
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;">CI基盤</div>
+          <div style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px;">運用</div>
+          <div style="font-size: 12px; color: var(--ink-2); line-height: 1.7;">CI申請の徹底・全社への教育・啓蒙</div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--ink-3); border-right: 1px solid var(--paper-3);">&#8594;</div>
+        <div style="padding: 24px 20px;">
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;">Story OS</div>
+          <div style="font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--ink); margin-bottom: 6px;">1Source Multi-Use</div>
+          <div style="font-size: 12px; color: var(--ink-2); line-height: 1.7;">1回の取材素材から社内報・採用広報・ウェブコンテンツを同時生成。全社の誰もがCIに準拠した発信を行える基盤として機能する</div>
+        </div>
       </div>
-      <div class="product-card">
-        <div class="product-card-name">1Source Multi-Use</div>
-        <p>
-          <strong style="font-weight: 500; color: var(--ink);">Phase 2で活用</strong><br>
-          過去素材の再利用機能により、1回の取材から社内報・採用記事・ウェブコンテンツを同時生成。外部ライター委託を構造的に不要にする
-        </p>
-      </div>
+    </div>
+
+    <div class="insight-box">
+      <strong>補足：</strong>Story OSはCI基盤を置き換えるものではありません。CI基盤で定めたルール・仕組み・運用を、日々の編集業務で自然に使える形に落とし込むためのレイヤーです。
     </div>
 
     <!-- Workflow Diagram -->
     <div class="workflow-diagram">
-      <div class="wf-title">AI編集体制のワークフロー</div>
+      <div class="wf-title">CI基盤 × Story OS ワークフロー</div>
       <div class="wf-steps">
         <div class="wf-step">
           <div class="wf-step-num">1</div>
           <div class="wf-step-name">取材</div>
-          <div class="wf-step-desc">自動インタビュー<br>or 対面取材</div>
+          <div class="wf-step-desc">Interview で<br>自動ヒアリング</div>
         </div>
         <div class="wf-step">
           <div class="wf-step-num">2</div>
           <div class="wf-step-name">AI初稿生成</div>
-          <div class="wf-step-desc">カテゴリー対応<br>レシピで自動生成</div>
+          <div class="wf-step-desc">Brand Memory準拠の<br>レシピで自動生成</div>
         </div>
         <div class="wf-step">
           <div class="wf-step-num">3</div>
           <div class="wf-step-name">CCレビュー</div>
-          <div class="wf-step-desc">ガイドラインに基づく<br>品質管理</div>
+          <div class="wf-step-desc">CI基盤のルールに基づく<br>品質チェック</div>
         </div>
         <div class="wf-step">
           <div class="wf-step-num">4</div>
-          <div class="wf-step-name">配信・転用</div>
-          <div class="wf-step-desc">社内報 + 採用 +<br>ウェブサイト</div>
+          <div class="wf-step-name">マルチ配信</div>
+          <div class="wf-step-desc">1Source Multi-Use で<br>全チャネルに展開</div>
         </div>
       </div>
     </div>
@@ -855,93 +979,14 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- 7. 費用 -->
-<section class="page" id="pricing">
-  <div class="container">
-    <div class="chap">07 — Pricing</div>
-    <h2 class="s-heading">費用体系</h2>
-    <p class="s-lead">
-      まずは3ヶ月のPoCで編集基盤を構築し、<br>成果をもとに本格支援への移行を判断いただきます。
-    </p>
-
-    <!-- PoC Pricing -->
-    <div class="value-outcome" style="margin-top: 0;">
-      <div class="vo-item" style="grid-column: 1 / -1; text-align: left;">
-        <div class="vo-label" style="text-align: left;">PoC：編集方針策定（3ヶ月）</div>
-        <div style="font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--paper); margin-bottom: 8px;">150〜200<span style="font-size: 18px; color: rgba(250,250,250,0.5);">万円（税抜）</span></div>
-        <div class="vo-text" style="text-align: left; color: rgba(250,250,250,0.6); font-size: 13px; line-height: 1.8;">
-          カテゴリーマップ、標準ヒアリングシート、レシピセット、編集ガイドラインの策定。<br>
-          編集プロフェッショナルによるワークショップ3-4回、レシピ設計・レビューを含む。<br>
-          StoryHub既存利用料は現行契約を据え置き。
-        </div>
-      </div>
-    </div>
-
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 40px;">本格支援（PoC成果をもとに正式見積）</h3>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>項目</th>
-          <th>内容</th>
-          <th>費用目安</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>月次伴走支援</td>
-          <td>月次編集会議、レシピ調整、コンテンツレビュー、勉強会</td>
-          <td>40〜50万円/月</td>
-        </tr>
-        <tr>
-          <td>StoryHubアップグレード</td>
-          <td>上位プランへの移行（レシピ数・クレジット拡充）</td>
-          <td>+10〜20万円/月</td>
-        </tr>
-        <tr>
-          <td>自動インタビュー</td>
-          <td>StoryHub Interview オプション追加</td>
-          <td>+5〜10万円/月</td>
-        </tr>
-        <tr>
-          <td style="font-weight: 700;">月額合計</td>
-          <td></td>
-          <td style="font-weight: 700;">55〜80万円/月</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3 style="font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; margin-top: 40px;">ROI試算（参考）</h3>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-num" style="font-size: 22px;">外注費削減</div>
-        <div class="stat-label">外部ライター委託費<br>（1本10〜30万円）×年間本数分<br>書き直し工数の解消を含む</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" style="font-size: 22px;">工数削減</div>
-        <div class="stat-label">自動インタビューで<br>取材調整・立会い工数を圧縮<br>CCの戦略業務時間を確保</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" style="font-size: 22px;">採用効率</div>
-        <div class="stat-label">自社コンテンツ経由の<br>オーガニック応募獲得<br>媒体費1名70〜100万円削減</div>
-      </div>
-    </div>
-
-    <div class="insight-box">
-      <strong>段階的な費用発生：</strong>PoC期間中のStoryHub利用料は現行契約を据え置きます。本格支援への移行はPoC完了後、成果を定量評価いただいた上で判断いただく形です。
-    </div>
-  </div>
-</section>
-
-<!-- 8. Closing / Next Steps -->
+<!-- 7. Closing / Next Steps -->
 <section id="closing">
   <div class="container">
-    <div class="chap">08 — Next Step</div>
+    <div class="chap">07 — Next Step</div>
     <p class="closing-q">
-      経営の方向性を翻訳し、<br>
-      現場の挑戦を引き出し、<br>
-      <em>点を線にする編集体制を、共に設計する。</em>
+      基盤は整いつつある。<br>
+      次は、それを現場で回す仕組みを<br>
+      <em>一緒に作りませんか。</em>
     </p>
 
     <div class="next-steps">
